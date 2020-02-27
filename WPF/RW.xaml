@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Color x:Key="RW_TextForegroundColor">#D6D7D6</Color>
+    <Color x:Key="RW_SubtextForegroundColor">#ACADAD</Color>
+    <Color x:Key="RW_WindowBackgroundColor">#15191D</Color>
+    <Color x:Key="RW_SectionBackgroundColor">#2A2B2C</Color>
+    <Color x:Key="RW_ButtonBackgroundColor">#6A512E</Color>
+    <SolidColorBrush x:Key="RW_TextForeground" Color="{StaticResource RW_TextForegroundColor}" />
+    <SolidColorBrush x:Key="RW_SubtextForeground" Color="{StaticResource RW_SubtextForegroundColor}" />
+    <SolidColorBrush x:Key="RW_WindowBackground" Color="{StaticResource RW_WindowBackgroundColor}" />
+    <SolidColorBrush x:Key="RW_SectionBackground" Color="{StaticResource RW_SectionBackgroundColor}" />
+    <SolidColorBrush x:Key="RW_ButtonBackground" Color="{StaticResource RW_ButtonBackgroundColor}" />
+</ResourceDictionary>

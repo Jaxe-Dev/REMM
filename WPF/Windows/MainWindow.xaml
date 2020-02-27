@@ -1,0 +1,32 @@
+﻿<Window x:Class="REMM.WPF.Windows.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:REMM.WPF.Controls"
+        xmlns:root="clr-namespace:REMM"
+        mc:Ignorable="d"
+        Height="600" Width="1200"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Roboto"
+        Foreground="{StaticResource RW_TextForeground}"
+        Background="{StaticResource RW_WindowBackground}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <controls:ModListView x:Name="AllMods" Grid.Column="0" ModList="{Binding Source={x:Static root:Static.G}, Path=RimWorld.Mods}" DragDropContext="All" CanDragDrop="False" />
+            <!--<controls:ModListView x:Name="ActiveMods" Grid.Column="1" ModList="{Binding Source={x:Static root:Static.G}, Path=RimWorld.ActiveMods}" DragDropContext="Active" CanDragDrop="True" />-->
+            <!--<controls:ModInfoView Grid.Column="2" DataContext="{Binding ElementName=AllMods, Path=SelectedMod}" />-->
+            <controls:ModInfoView Grid.Column="1" DataContext="{Binding ElementName=AllMods, Path=SelectedMod}" />
+        </Grid>
+    </Grid>
+</Window>

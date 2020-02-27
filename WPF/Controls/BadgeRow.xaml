@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="REMM.WPF.Controls.BadgeRow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:REMM.WPF.Controls"
+             xmlns:rw="clr-namespace:REMM.RW"
+             mc:Ignorable="d"
+             x:Name="Self">
+    <ItemsControl ItemsSource="{Binding ElementName=Self, Path=Mod.Badges}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <StackPanel Orientation="Horizontal" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate DataType="rw:Badge">
+                <controls:BadgeIcon Badge="{Binding}" Width="{Binding Width}" ToolTip="{Binding Description}" />
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

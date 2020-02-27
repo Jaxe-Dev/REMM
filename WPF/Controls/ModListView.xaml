@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="REMM.WPF.Controls.ModListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:controls="clr-namespace:REMM.WPF.Controls"
+             xmlns:dragdrop="urn:gong-wpf-dragdrop"
+             xmlns:rw="clr-namespace:REMM.RW"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800"
+             x:Name="Self">
+    <ListView VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
+              ItemsSource="{Binding ElementName=Self, Path=ModList}"
+              SelectedItem="{Binding ElementName=Self, Path=SelectedMod}"
+              dragdrop:DragDrop.IsDragSource="{Binding ElementName=Self, Path=CanDragDrop}"
+              dragdrop:DragDrop.IsDropTarget="{Binding ElementName=Self, Path=CanDragDrop}"
+              dragdrop:DragDrop.DragDropContext="{Binding ElementName=Self, Path=DragDropContext}"
+              SelectionMode="Extended">
+        <ListView.View>
+            <GridView>
+                <GridView.ColumnHeaderContainerStyle>
+                    <Style TargetType="GridViewColumnHeader" BasedOn="{StaticResource {x:Type GridViewColumnHeader}}">
+                        <Setter Property="HorizontalContentAlignment" Value="Left" />
+                        <Setter Property="Padding" Value="2" />
+                        <Setter Property="FontSize" Value="8" />
+                    </Style>
+                </GridView.ColumnHeaderContainerStyle>
+                <GridViewColumn Header="MOD" Width="300">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate DataType="rw:Mod">
+                            <controls:ModListItem />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn Header="INSTALLED" DisplayMemberBinding="{Binding InstalledText}">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate DataType="rw:Mod">
+                            <controls:ModListItem />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn Header="UPDATED" DisplayMemberBinding="{Binding UpdatedText}">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate DataType="rw:Mod">
+                            <controls:ModListItem />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+
+                <GridViewColumn Header="ORDER">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate DataType="rw:Mod">
+                            <TextBlock Text="{Binding Order}" />
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
+            </GridView>
+        </ListView.View>
+    </ListView>
+</UserControl>
